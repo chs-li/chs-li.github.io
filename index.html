@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <title>李誌軒 | AI Engineer Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card-bg: #020617;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.12);
+      --text-main: #e5e7eb;
+      --text-sub: #9ca3af;
+      --border-subtle: #1f2937;
+      --badge-bg: #111827;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top, #082f49, #020617 48%, #000 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 32px 16px 48px;
+    }
+
+    header {
+      margin-bottom: 32px;
+      padding: 24px 20px;
+      border-radius: 18px;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      background: radial-gradient(circle at top left, #0b1120, #020617);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.8);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    @media (min-width: 720px) {
+      header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    .title-block h1 {
+      font-size: 2rem;
+      margin: 0 0 4px;
+      letter-spacing: 0.04em;
+    }
+
+    .title-block .subtitle {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--text-sub);
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .badge {
+      font-size: 0.78rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--badge-bg);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      color: var(--text-sub);
+    }
+
+    .highlight-badge {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      color: #e0f2fe;
+    }
+
+    .contact {
+      font-size: 0.9rem;
+      color: var(--text-sub);
+    }
+
+    .contact p {
+      margin: 4px 0;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 8px;
+    }
+
+    section {
+      padding: 18px 18px 20px;
+      border-radius: 16px;
+      border: 1px solid var(--border-subtle);
+      background: linear-gradient(
+        135deg,
+        rgba(15, 23, 42, 0.96),
+        rgba(15, 23, 42, 0.85)
+      );
+      backdrop-filter: blur(18px);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.85);
+    }
+
+    section h2 {
+      margin: 0 0 10px;
+      font-size: 1.1rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #e5e7eb;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    section h2::before {
+      content: "";
+      width: 3px;
+      height: 18px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #38bdf8, #a855f7);
+    }
+
+    .section-subtitle {
+      margin: 0 0 10px;
+      font-size: 0.85rem;
+      color: var(--text-sub);
+    }
+
+    .item-title {
+      font-weight: 600;
+      margin-top: 10px;
+      margin-bottom: 2px;
+    }
+
+    .item-sub {
+      font-size: 0.85rem;
+      color: var(--text-sub);
+      margin-bottom: 4px;
+    }
+
+    ul {
+      margin: 4px 0 8px 1.2rem;
+      padding: 0;
+    }
+
+    li {
+      margin: 2px 0;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .pill {
+      font-size: 0.78rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      color: var(--text-sub);
+    }
+
+    .links-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .link-chip {
+      font-size: 0.8rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #020617;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .link-chip span {
+      font-size: 0.8rem;
+    }
+
+    .muted {
+      color: var(--text-sub);
+      font-size: 0.8rem;
+    }
+
+    .photo-note-list {
+      margin: 4px 0 4px 1.2rem;
+      padding: 0;
+      font-size: 0.86rem;
+      color: var(--text-sub);
+    }
+
+    footer {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--text-sub);
+      opacity: 0.8;
+    }
+
+    @media (min-width: 720px) {
+      .page {
+        padding: 40px 24px 56px;
+      }
+
+      header {
+        padding: 26px 24px;
+      }
+
+      section {
+        padding: 20px 22px 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- 頂部個人資訊 -->
+    <header>
+      <div class="title-block">
+        <h1>李誌軒</h1>
+        <p class="subtitle">
+          AI Engineer · 強化學習 / 生成式 AI / RAG · 預定 2026 九州大學 ISEE 研究生
+        </p>
+        <div class="badges">
+          <span class="badge highlight-badge">接案中 · AI / LLM / RAG / RL</span>
+          <span class="badge">GPA 4.0 / 4.0</span>
+          <span class="badge">JLPT N1</span>
+        </div>
+      </div>
+      <div class="contact">
+        <p>電話：<a href="tel:+886910028056">+886 0910 028 056</a></p>
+        <p>Email：<a href="mailto:chs.li.work@gmail.com">chs.li.work@gmail.com</a></p>
+        <p>
+          X：
+          <a href="https://x.com/lizhixuan171513" target="_blank"
+            >@lizhixuan171513</a
+          >
+        </p>
+        <p>
+          Medium：
+          <a href="https://medium.com/@chs.li.work" target="_blank"
+            >@chs.li.work</a
+          >
+        </p>
+      </div>
+    </header>
+
+    <main>
+      <!-- 工作經歷 & 專案 -->
+      <section id="projects">
+        <h2>工作經歷與專案</h2>
+        <p class="section-subtitle">
+          以下為實務參與之專案項目，部分內容受保密協定限制，暫不公開程式碼，僅說明方向與技術。
+        </p>
+
+        <div class="item">
+          <div class="item-title">1. 屏蔽惡意發言</div>
+          <div class="item-sub">LLM · 機器學習 / 深度學習</div>
+          <ul>
+            <!-- 這裡留給你之後補專案描述，可以用多行 li -->
+            <li>（範例）針對遊戲聊天訊息進行即時檢測與過濾。</li>
+            <li>（範例）結合 LLM + 傳統分類模型，提高偵測準確率與召回率。</li>
+          </ul>
+          <div class="pill-list">
+            <span class="pill">Toxicity Detection</span>
+            <span class="pill">LLM Safety</span>
+            <span class="pill">Text Classification</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-title">2. Stable Diffusion：Logo 生成與草稿填色</div>
+          <div class="item-sub">生成式模型 · 影像處理</div>
+          <ul>
+            <li>支援 Logo 設計初稿生成、草稿自動上色流程。</li>
+          </ul>
+          <div class="pill-list">
+            <span class="pill">Stable Diffusion</span>
+            <span class="pill">ControlNet</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-title">3. OCR 系統</div>
+          <ul>
+            <li>針對特定格式畫面與文字進行識別與結構化處理。</li>
+          </ul>
+          <div class="pill-list">
+            <span class="pill">OCR</span>
+            <span class="pill">Computer Vision</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-title">4. RAG 系統</div>
+          <div class="item-sub">角色扮演 · 各式 RAG 實作</div>
+          <ul>
+            <li>設計多角色扮演對話 AI，支援長期記憶與知識檢索。</li>
+            <li>建置多種 RAG 流程，包含文件 Q&amp;A、知識庫查詢與情境對話。</li>
+          </ul>
+          <div class="pill-list">
+            <span class="pill">RAG</span>
+            <span class="pill">LLM Apps</span>
+            <span class="pill">Vector Store</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-title">5. 強化學習專案</div>
+          <ul>
+            <li>Unity 遊戲內角色路徑規劃與移動策略優化。</li>
+            <li>遊戲機策略發掘與投幣機制模擬。</li>
+          </ul>
+          <div class="pill-list">
+            <span class="pill">Reinforcement Learning</span>
+            <span class="pill">Unity</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-title">6. 遊戲聊天室機器人開發</div>
+          <ul>
+            <li>實作遊戲內聊天機器人，支援指令解析與互動回覆。</li>
+          </ul>
+          <div class="pill-list">
+            <span class="pill">Chatbot</span>
+            <span class="pill">Game AI</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-title">7. 影片分析</div>
+          <ul>
+            <li>針對影片內容進行特徵擷取與事件分析。</li>
+          </ul>
+          <div class="pill-list">
+            <span class="pill">Video Analysis</span>
+            <span class="pill">CV</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-title">8. Ray / ollama 等 AI 相關服務建置與使用</div>
+          <ul>
+            <li>使用 Ray 進行分散式任務管理與服務佈署。</li>
+            <li>導入 ollama 等本地 LLM 服務，協助內部測試與原型開發。</li>
+          </ul>
+          <div class="pill-list">
+            <span class="pill">Ray</span>
+            <span class="pill">ollama</span>
+            <span class="pill">MLOps</span>
+          </div>
+        </div>
+
+        <p class="muted">
+          ※ 若有興趣瞭解上述任一專案細節，可來信詢問，可視情況提供更完整技術說明。
+        </p>
+      </section>
+
+      <!-- 其他專業經歷 -->
+      <section id="pro">
+        <h2>其他專業經歷</h2>
+
+        <div class="item">
+          <div class="item-title">中研院 AI 相關暑期實習 & 大專生專題生</div>
+          <ul>
+            <li>參與跨領域 AI 專題研究，負責模型設計與實驗驗證。</li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <div class="item-title">
+            MOSA: Music Motion With Semantic Annotation Dataset for Cross-Modal Music Processing
+          </div>
+          <div class="item-sub">
+            co-author · IEEE 論文
+            （<a href="https://ieeexplore.ieee.org/document/10542439" target="_blank"
+              >論文連結</a
+            >）
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-title">畢業專題：AI 推薦系統演算法開發</div>
+          <ul>
+            <li>負責演算法設計與模型評估，聚焦於推薦品質與個人化表現。</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 學業經歷 -->
+      <section id="education">
+        <h2>學歷與學術表現</h2>
+        <ul>
+          <li>國立彰化師範大學 資訊管理系 · GPA 4.0 / 4.0 畢業</li>
+          <li>資訊管理系 &amp; 資訊工程系 雙主修 · 系排前 5%</li>
+          <li>預計 2026 / 4 赴日本九州大學 ISEE 就讀研究生</li>
+        </ul>
+        <ul>
+          <li>109 學測數學：15 級分</li>
+          <li>國中教育會考數學：A++</li>
+        </ul>
+      </section>
+
+      <!-- 教學經歷 -->
+      <section id="teaching">
+        <h2>教學經歷</h2>
+        <ul>
+          <li>補習班臺上數學教師 3 年半</li>
+          <li>補習班課輔 1 年半</li>
+          <li>國高中數學家教 4 年半</li>
+          <li>公司內部 3 天 AI 課程講師</li>
+          <li>國中數學／理化家教 3 年半</li>
+          <li>高職數學 B 家教 2 年半</li>
+          <li>國小生國中先修班數學老師 2 年</li>
+        </ul>
+      </section>
+
+      <!-- 文章撰寫 -->
+      <section id="writing">
+        <h2>文章與寫作</h2>
+        <div class="item">
+          <div class="item-title">技術 Blog</div>
+          <div class="item-sub">
+            AI · Quantum ML · Quantum Information · Paper Review
+          </div>
+          <p>
+            Medium：
+            <a href="https://medium.com/@chs.li.work" target="_blank"
+              >https://medium.com/@chs.li.work</a
+            >
+          </p>
+        </div>
+
+        <div class="item">
+          <div class="item-title">EntangleTech Quantum Information Theory 系列文章</div>
+          <div class="item-sub">
+            已審稿完成，預計於近期刊登於 EntangleTech 官網。
+          </div>
+        </div>
+      </section>
+
+      <!-- 日文 & 交流 -->
+      <section id="jp">
+        <h2>日文與國際交流經歷</h2>
+        <ul>
+          <li>日本語能力試驗 JLPT N1</li>
+        </ul>
+
+        <div class="item">
+          <div class="item-title">南三陸深度日台交流（3 次）</div>
+          <ul class="photo-note-list">
+            <li>（可放 1–2 張現場合照，附上簡短說明：如「與當地居民交流、災後重建相關活動」）</li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <div class="item-title">多次與千葉大學日台交流</div>
+          <ul class="photo-note-list">
+            <li>（可放 1–2 張照片：如討論會、交流活動合影）</li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <div class="item-title">嘉義管樂節：接待赴台表演團</div>
+          <ul class="photo-note-list">
+            <li>（可放 1–2 張團體照：簡述負責接待與文化交流）</li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <div class="item-title">青年百億計畫 - 重生希望使者（福島研修）</div>
+          <ul class="photo-note-list">
+            <li>（可放 1–2 張照片：研修課程、當地參訪場景）</li>
+          </ul>
+          <div class="links-row">
+            <a
+              class="link-chip"
+              href="https://www.instagram.com/p/DPtjcMzgapb/?img_index=1"
+              target="_blank"
+            >
+              <span>IG 分享文 1</span>
+            </a>
+            <a
+              class="link-chip"
+              href="https://www.instagram.com/p/DP_klAJAcfI/?img_index=1"
+              target="_blank"
+            >
+              <span>IG 分享文 2</span>
+            </a>
+            <a
+              class="link-chip"
+              href="https://www.instagram.com/p/DQSwVDwksiF/?img_index=1"
+              target="_blank"
+            >
+              <span>IG 分享文 3</span>
+            </a>
+            <a
+              class="link-chip"
+              href="https://www.instagram.com/p/DQnw5hkgVQe/?img_index=1"
+              target="_blank"
+            >
+              <span>IG 分享文 4</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-title">日台交流協會 2026 年度碩博士留學生獎學金合格</div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      © <span id="year"></span> 李誌軒 · Portfolio
+    </footer>
+  </div>
+
+  <script>
+    // 自動顯示年份
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
