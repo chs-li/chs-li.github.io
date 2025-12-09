@@ -191,7 +191,7 @@
         }
 
         .bento-card.large {
-            grid-column: span 2;
+            grid-column: span 1;
         }
 
         @media (max-width: 768px) {
@@ -583,6 +583,32 @@
                 padding: 5px 15px;
             }
         }
+
+        /* --- 專案連結樣式 --- */
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: auto;
+            /* 讓連結自動推到底部 */
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--accent-blue);
+            transition: all 0.2s ease;
+            padding-top: 15px;
+        }
+
+        .project-link:hover {
+            opacity: 0.8;
+            transform: translateX(4px);
+            /* 滑鼠移上去稍微往右動 */
+        }
+
+        /* 調整卡片內部間距，確保文字不會太擠 */
+        .bento-card p.card-desc {
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
     </style>
 </head>
 
@@ -615,95 +641,109 @@
         </div>
     </section>
 
-    <!-- 專案經歷 -->
+    <!-- 專案經歷 (精簡版 + 連結) -->
     <section id="projects" class="container">
         <div class="section-header reveal">
-            <span class="confidential-note">🔒 基於保密原則，僅展示技術描述</span>
+            <span class="confidential-note">🔒 基於保密原則，僅展示架構摘要</span>
             <h2 class="section-title">Selected Projects</h2>
-            <p class="section-subtitle">融合 ML、DL 與生成式 AI 的實戰開發經驗。</p>
+            <p class="section-subtitle">點擊查看詳細技術文檔 (GitHub)。</p>
         </div>
 
         <div class="grid-container reveal">
 
             <!-- 專案 4 RAG -->
-            <div class="bento-card large" style="background: linear-gradient(135deg, #f0f4ff 0%, #ffffff 100%);">
+            <div class="bento-card large">
                 <div class="card-icon">🤖</div>
-                <div class="card-title">RAG (檢索增強生成)</div>
-                <ul class="card-list">
-                    <li>實作多種 RAG 流派：標準 RAG、LLM-based RAG、GraphRAG</li>
-                    <li>建置企業知識庫問答、角色扮演與角色知識塑造系統</li>
-                    <li>處理幻覺、多跳推理與長上下文精準檢索問題</li>
-                    <li>整合多階段檢索：keyword、dense、reranker（LLM / bge / Cohere）混合管線</li>
-                    <li>優化 chunking、embedding 與記憶結構，提升檢索覆蓋率與語意一致性</li>
-                </ul>
+                <div class="card-title">RAG 企業級知識庫</div>
+                <p class="card-desc">
+                    整合 GraphRAG、Hybrid Search 與 Rerank 機制，解決 LLM 幻覺與長上下文檢索問題，實現高精準度的企業問答與角色知識塑造。
+                </p>
+                <!-- 請確認檔名是否為 rag.md -->
+                <a href="https://github.com/chs-li/chs-li.github.io/blob/master/md/README_RAG.md" target="_blank"
+                    class="project-link">
+                    View Technical Details ↗
+                </a>
             </div>
-            <!-- 專案 2 & 3 -->
+
+            <!-- 專案 2 & 3 SD -->
             <div class="bento-card large">
                 <div class="card-icon">🎨</div>
-                <div class="card-title">Stable Diffusion 應用</div>
-                <ul class="card-list">
-                    <li>企業內部 Stable Diffusion 教學與實務導入</li>
-                    <li>遊戲 Logo 風格化與跨風格轉換</li>
-                    <li>草稿自動上色與智慧補筆技術</li>
-                    <li>LoRA 模型微調與生成品質優化</li>
-                    <li>建立多模型生成流程（SDXL、ControlNet、Inpaint 等）提升可控性</li>
-                </ul>
+                <div class="card-title">Stable Diffusion 商業應用</div>
+                <p class="card-desc">
+                    建立多模型生成管線 (SDXL, ControlNet)，利用 LoRA 微調實現 Logo 風格化、草稿自動上色，並導入企業內部教學與實務工作流。
+                </p>
+                <!-- 請確認檔名 -->
+                <a href="https://github.com/chs-li/chs-li.github.io/blob/master/md/README_SD.md" target="_blank"
+                    class="project-link">
+                    View Case Study ↗
+                </a>
             </div>
+
+            <!-- 專案 OCR -->
             <div class="bento-card large">
                 <div class="card-icon">👁️</div>
-                <div class="card-title">OCR 文字識別</div>
-                <ul class="card-list">
-                    <li>導入公開 OCR 模型並處理複雜影像資料</li>
-                    <li>針對特殊字體與不規則排版進行模型微調</li>
-                    <li>部署內部識別服務，支援多語系自動化處理</li>
-                    <li>設計影像前處理流程（傾斜校正、去噪、二值化）以提升辨識率</li>
-                </ul>
+                <div class="card-title">OCR 識別與微調</div>
+                <p class="card-desc">
+                    針對特殊字體與傾斜排版進行模型微調，設計影像前處理 (去噪/二值化) 流程，部署支援多語系的高精度自動化識別服務。
+                </p>
+                <!-- 請確認檔名 -->
+                <a href="https://github.com/chs-li/chs-li.github.io/blob/master/md/README_ocr.md" target="_blank"
+                    class="project-link">
+                    View Technical Details ↗
+                </a>
             </div>
 
-            <!-- 專案 1 -->
+            <!-- 專案 1 屏蔽系統 -->
             <div class="bento-card large">
                 <div class="card-icon">🛡️</div>
-                <div class="card-title">屏蔽惡意發言系統</div>
-                <!-- <p class="card-desc">結合大型語言模型 (LLM) 與傳統機器學習 (ML+DL)，構建多層次的語意過濾機制，有效識別並攔截不當內容。</p> -->
-                <ul class="card-list">
-                    <li>融合大型語言模型（LLM）與傳統機器學習，打造高效內容辨識能力</li>
-                    <li>設計多層語意過濾架構，精準偵測並攔截聊天室中不當或攻擊性訊息</li>
-                    <li>協助內部單位降低人工審查與處理成本，提高營運效率</li>
-                </ul>
+                <div class="card-title">惡意發言屏蔽系統</div>
+                <p class="card-desc">
+                    融合 LLM 語意理解與傳統 ML 分類器，構建多層防護網，精準攔截攻擊性訊息，大幅降低人工審查成本並提升營運效率。
+                </p>
+                <!-- 請確認檔名 -->
+                <a href="https://github.com/chs-li/chs-li.github.io/blob/master/md/README_neg.md" target="_blank"
+                    class="project-link">
+                    View Architecture ↗
+                </a>
             </div>
 
-
-            <!-- 其他專案 -->
+            <!-- 強化學習 -->
             <div class="bento-card">
                 <div class="card-icon">🎮</div>
-                <div class="card-title">強化學習 (RL)</div>
-                <ul class="card-list">
-                    <li>Unity NPC 路徑規劃與避障策略</li>
-                    <li>單一 RL 模型適用於多個遊戲場景的移動與跳躍控制</li>
-                    <li>自動化遊戲策略探索與最佳化</li>
-                    <li>結合 Unity 環境建模與 RL 代理訓練流程</li>
-                </ul>
+                <div class="card-title">Unity 強化學習</div>
+                <p class="card-desc">
+                    應用 RL 於 Unity 環境，訓練 NPC 具備跨場景的路徑規劃、避障與自動化策略探索能力。
+                </p>
+                <a href="https://github.com/chs-li/chs-li.github.io/blob/master/md/README_RL.md" target="_blank"
+                    class="project-link">
+                    View Details ↗
+                </a>
             </div>
+
+            <!-- Chatbot -->
             <div class="bento-card large">
                 <div class="card-icon">💬</div>
-                <div class="card-title">Chatbot</div>
-                <ul class="card-list">
-                    <li>設計具角色扮演能力的 LLM Agent（角色設定、自我世界觀與知識邊界）</li>
-                    <li>構建角色記憶系統：RAG 記憶、長期對話記憶與情緒狀態管理</li>
-                    <li>整合不雅字眼與不當內容過濾機制</li>
-                    <li>開發遊戲聊天室機器人，活絡玩家互動與維持社群氛圍</li>
-                    <li>多語言回覆、語氣模仿與角色一致性維護</li>
-                </ul>
+                <div class="card-title">LLM Agent & Chatbot</div>
+                <p class="card-desc">
+                    設計具備長期記憶與 RAG 知識庫的 Agent，打造性格鮮明、能過濾不當內容且具備世界觀的遊戲社交機器人。
+                </p>
+                <a href="https://github.com/chs-li/chs-li.github.io/blob/master/md/README_chatbot.md" target="_blank"
+                    class="project-link">
+                    View Details ↗
+                </a>
             </div>
+
+            <!-- 影片分析 -->
             <div class="bento-card">
                 <div class="card-icon">🎬</div>
                 <div class="card-title">影片內容分析</div>
-                <ul class="card-list">
-                    <li>自動化影格標記與視覺元素定位</li>
-                    <li>物件追蹤與時序行為分析</li>
-                    <li>從影片中提取並量化關鍵事件與數值變化</li>
-                    <li>建立可擴充的影片資料解析流程與統計模組</li>
-                </ul>
+                <p class="card-desc">
+                    建立自動化解析流程，透過視覺元素定位與物件追蹤技術，量化關鍵事件與時序行為分析。
+                </p>
+                <a href="https://github.com/chs-li/chs-li.github.io/blob/master/md/README_V_ana.md" target="_blank"
+                    class="project-link">
+                    View Details ↗
+                </a>
             </div>
         </div>
     </section>
@@ -903,10 +943,10 @@
             <div class="photo-card">
                 <!-- 這裡 data-photos 填入所有要顯示的照片檔名，第一張會當作封面 -->
                 <div class="photo-trigger" onclick="openGallery(this)"
-                    data-photos="./pic/fukushima_0.jpg, ./pic/fukushima_01.jpg, ./pic/fukushima_1.jpg, ./pic/fukushima_2.jpg">
+                    data-photos="./pic/fukushima_0.jpg, ./pic/fukushima_0.jpg, ./pic/fukushima_01.jpg, ./pic/fukushima_1.jpg, ./pic/fukushima_2.jpg">
 
                     <!-- 這是預設封面 (請換成實際路徑) -->
-                    <img src="./pic/fukushima_0.jpg" class="actual-img" style="display:block;">
+                    <img src="./pic/fukushima_me.jpeg " class="actual-img" style="display:block;">
                     <!-- <div class="img-placeholder">福島研修 (封面)</div> -->
 
                     <!-- 多張照片指示器 -->
@@ -959,7 +999,7 @@
             <!-- Item 3: 千葉大學 -->
             <div class="photo-card">
                 <div class="photo-trigger" onclick="openGallery(this)"
-                    data-photos="./pic/chiba_0.jpg, ./pic/chiba_1.jpg">
+                    data-photos="`./pic/chiba_me.jpg, ./pic/chiba_0.jpg, ./pic/chiba_1.jpg">
 
                     <img src="./pic/chiba_0.jpg" class="actual-img" style="display:block;">
                     <!-- <div class="img-placeholder">千葉大學 (封面)</div> -->
@@ -1078,6 +1118,20 @@
                 </ul>
             </div>
 
+            <!-- 其他合作機會 (全寬卡片) -->
+            <div class="bento-card full-width"
+                style="background: linear-gradient(to right, #f5f5f7, #ffffff); text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px; border: 1px solid rgba(0,0,0,0.05);">
+                <div style="font-size: 2rem; margin-bottom: 10px;">✨</div>
+                <h3 class="card-title" style="margin-bottom: 15px;">Looking for Something Else?</h3>
+                <p class="card-desc" style="max-width: 700px; margin: 0 auto 25px; font-size: 1.05rem;">
+                    除了上述項目，若您有 <strong>Unity 遊戲 AI 整合</strong>、<strong>台日技術橋樑</strong>、<strong>自動化工作流
+                        (Automation)</strong> 或其他創新想法，歡迎直接聯繫我，讓我們一起討論客製化的解決方案。
+                </p>
+                <a href="#contact"
+                    style="color: var(--accent-blue); font-weight: 600; font-size: 1.1rem; display: inline-flex; align-items: center; gap: 8px; border-bottom: 2px solid transparent; transition: border-color 0.3s;">
+                    Contact Me to Discuss <span>↓</span>
+                </a>
+            </div>
         </div>
     </section>
 
